@@ -20,7 +20,7 @@ type PlayerNameInput struct {
 	FullName string `json:"playerName" binding:"required"`
 }
 
-type PlayerTeams struct {
-	PlayerID           int                              `json:"playerID"`
-	RegisteredTeamsArr []RegisteredTeamsPlayerDashboard `json:"registeredTeams"`
-}
+// type PlayerTeams struct {
+// 	PlayerID           int                              `json:"playerID"`
+// 	RegisteredTeamsArr []RegisteredTeamsPlayerDashboard `json:"registeredTeams"`
+// }

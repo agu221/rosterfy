@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"rosterfy/backend/internal/auth"
 	"rosterfy/backend/internal/models"
+	"rosterfy/backend/internal/repository"
 
 	"github.com/gin-gonic/gin"
 )
