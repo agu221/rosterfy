@@ -9,6 +9,10 @@ type PlayerRepository struct {
 	DB *sql.DB
 }
 
+func NewPlayerRepository(db *sql.DB) *PlayerRepository{
+	return &PlayerRepository{DB: db}
+}
+
 func (r *PlayerRepository) CreatePlayer(p *models.Player) error {
 	_, err := r.DB.Exec(`INSERT INTO players (first_name, last_name, dob) VALUES ($1,$2,$3)`,
 		p.FirstName, p.LastName, p.DOB)

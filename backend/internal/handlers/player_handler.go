@@ -10,7 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func PostPlayerHandler(repo repository.PlayerRepository) gin.HandlerFunc {
+func PostPlayerHandler(repo *repository.PlayerRepository) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var input models.PlayerInput
 		if err := c.ShouldBindJSON(&input); err != nil {

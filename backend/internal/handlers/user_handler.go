@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func UserRegisterHandler(repo repository.UserRepository) gin.HandlerFunc {
+func UserRegisterHandler(repo *repository.UserRepository) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var req models.RegisterUserRequest
 		if err := c.ShouldBindJSON(&req); err != nil {
@@ -45,7 +45,7 @@ func UserRegisterHandler(repo repository.UserRepository) gin.HandlerFunc {
 	}
 }
 
-func UserLoginHandler(repo repository.UserRepository, jwt *auth.JWTManager) gin.HandlerFunc {
+func UserLoginHandler(repo *repository.UserRepository, jwt *auth.JWTManager) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var req models.LoginUserRequest
 		if err := c.ShouldBindJSON(&req); err != nil {

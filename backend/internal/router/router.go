@@ -1,41 +1,31 @@
 package router
 
 import (
-	"net/http"
-	"sports_team_manager/controllers"
+	"database/sql"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRouter() *gin.Engine {
-	router := gin.Default()
+func SetupRouter(db *sql.DB) *gin.Engine {
 
-	router.Static("/static", "./static")
-	router.LoadHTMLGlob("templates/*")
-	router.GET("/login", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "login.html", nil)
+	router := gin.Default()
+	
+	router.Use(cors.New(cors.Config{
+		AllowOrigins: []string{"http://localhost:3000"},
+		AllowMethods: []string{"GET","POST","PUT","DELETE"},
+		AllowHeaders: []string{"Origin","Content-Type","Authorization"},
+		AllowCredentials: true,
+	}))
+	
+	router.GET("/api/ping", func(c *gin.Context) {
+		c.JSON(200, gin.H{"message":"pong"})
 	})
-	router.GET("/register", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "register.html", nil)
-	})
-	router.GET("/user-dashboard", func(c *gin.Context) {
-		role := "player"
-		switch role {
-		case "player":
-			c.Redirect(http.StatusFound, "/dashboard/player")
-		case "coach":
-			c.Redirect(http.StatusFound, "/dashboard/coach")
-		case "manager":
-			c.Redirect(http.StatusFound, "/dashboard/manager")
-		default:
-			c.HTML(http.StatusOK, "dashboard_generic.html", nil)
-		}
-	})
-	router.GET("/dashboard/player", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "dashboard_player.html", nil)
-	})
-	router.POST("/players", controllers.PostPlayers)
-	router.POST("/users/login", controllers.UserLoginHandler)
-	router.POST("/users/register", controllers.UserRegisterHandler)
+	router.Use(gin.Logger())
+	router.Use(gin.Recovery())
+
+	SetupPlayerRoutes(router.Group("/api/players"), db)
+	SetupUserRoutes(router.Group("/api/users"), db)
+	
 	return router
 }

@@ -8,7 +8,9 @@ import (
 type UserRepository struct {
 	DB *sql.DB
 }
-
+func NewUserRepository(db *sql.DB) *UserRepository{
+	return &UserRepository{DB: db}
+}
 func (r *UserRepository) CreateUser(u *models.User) error {
 	_, err := r.DB.Exec(`INSERT INTO registered_users (username, first_name, last_name, email, password_hash, phone_number, gender, date_of_birth, role)
     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,

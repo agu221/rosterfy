@@ -1,0 +1,149 @@
+.registerContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  padding: 2rem;
+  text-align: center;
+  background-color: linear-gradient(#059fca, white);
+  }
+
+.logo {
+  max-width: 160px;
+  margin: 0 auto 10px;
+}
+
+.slogan {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.nameRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.nameField {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+input {
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+select {
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.dobLabel {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  color: #333;
+}
+
+.dobRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.formRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.formLabel {
+  margin-bottom: 6px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.linkRow {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.signUpButton {
+  width: 30%;
+  padding: 12px;
+  background-color: #0066ff;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px auto 15px auto;
+  display: block;
+}
+
+.socialLogin {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.socialButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #f1f1f1;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: black;
+  transition: background 0.3s ease;
+}
+
+.socialButton:hover {
+  background: #e2e2e2;
+}
+
+@media (max-width: 600px) {
+  .signUpButton {
+    width: 100%;
+  }
+}

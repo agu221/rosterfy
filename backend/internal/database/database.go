@@ -1,46 +1,41 @@
-package storage
+package database
 
 import (
 	"database/sql"
 	"fmt"
-	"log"
 	"os"
 
-	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
 var DB *sql.DB
 
-func getConnectionString() (string, string, string, string, string) {
-	err := godotenv.Load()
+func GetConnectionString() string {
 	host := os.Getenv("DB_HOST")
 	port := os.Getenv("DB_PORT")
 	user := os.Getenv("DB_USER")
 	password := os.Getenv("DB_PASSWORD")
 	dbname := os.Getenv("DB_NAME")
+	sslmode := os.Getenv("DB_SSLMODE")
 
-	if err != nil {
-		log.Printf("Warning: .env file note loaded: %v", err)
-	}
-
-	return host, port, user, password, dbname
+	return fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s",
+		host,port,user,password,dbname,sslmode) 
 }
-func Connect() {
-	host, port, user, password, database_name := getConnectionString()
+func Connect() (*sql.DB, error) {
 
-	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, database_name)
+	connStr := GetConnectionString() 
 
-	var err error
-	DB, err = sql.Open("postgres", connStr)
+	DB, err := sql.Open("postgres", connStr)
 
 	if err != nil {
-		log.Fatal("Database Connectiong Failed: ", err)
+		return nil ,fmt.Errorf("database connection failed: %w", err)
 	}
-	err = DB.Ping()
-	if err != nil {
-		log.Fatal("Cannot reach database: ", err)
+	
+	if err = DB.Ping(); err != nil {
+		return nil, fmt.Errorf("cannot reach database: %w", err)
 	}
 
-	fmt.Println("Connested to PostgreSQL")
+	fmt.Println("Connected to PostgreSQL")
+
+	return  DB, nil
 }
