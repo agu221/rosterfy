@@ -1,12 +1,21 @@
 :root {
-  --primary-color: #0066ff;
+  --primary-color: #059fca;
+  --on-primary:#cdf3fe;
   --primary-hover: #0052cc;
+  --secondary-colour:#9bdce8;
+  --teritary-colour:#7fcce1;
+  --dark-accent: #1b9bce;
+  --light-accent: #e6f7fb;
   --accent-color: #059fca;
   --bg-light: #f9f9f9;
-  --text-dark: #333;
-  --text-light: #555;
+  --sidebar-bg: #ffffff;
+  --topbar-bg: #f4f6f8;
+  --text-dark: #050316;
+  --text-light: #6b7280;
+  --border-colour:	#e5e7eb;
   --error-color: red;
-  --border-color: #ddd;
+  --neutral-bg: #fbfbfe;
+  --round-icon-radius: 24px;
   --radius: 8px;
   --font-size-base: 15px;
   --transition: 0.3s ease;

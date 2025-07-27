@@ -1,6 +1,13 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
 .dashboard {
   display: flex;
   min-height: 100vh;
+  overflow: hidden;
+  background-color: black; 
 }
 
 .main {
@@ -10,8 +17,15 @@
 }
 
 .grid {
-  padding: 2rem;
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.main-content{
+    flex: 1 ;
+    padding: 2rem;
+    overflow-y: auto;
+    max-height: 100vh;
 }

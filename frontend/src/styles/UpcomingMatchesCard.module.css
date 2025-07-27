@@ -3,7 +3,9 @@
   border-radius: 0.5rem;
   padding: 1rem;
 }
-
+.card.full{
+  grid-column: 2;
+}
 ul {
   list-style: none;
   padding: 0;

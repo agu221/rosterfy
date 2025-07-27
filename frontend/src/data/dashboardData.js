@@ -1,8 +1,8 @@
+import avatar_img from "../../src/assets/avatar.png"
 export const user = {
     name: 'Jordan Smith',
-    avatar: '/assets/avatar.png',
+    avatar: avatar_img
 };
-
 export const teams = [
     { name: 'Red Hawks', sport: 'Soccer', league: 'League A', nextMatch: 'July 21' },
     { name: 'Blue Raptors', sport: 'Basketball', league: 'League B', nextMatch: 'July 24' },

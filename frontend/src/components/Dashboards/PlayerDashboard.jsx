@@ -1,6 +1,6 @@
 import React from 'react';
-import Sidebar from '@/components/Bars/Sidebar';
-import Topbar from '@/components/Bars/Topbar';
+import Sidebar from '../../components/Bars/Sidebar';
+import Topbar from '../../components/Bars/Topbar';
 import TeamsCard from './TeamsCard';
 import StatsLeagueCard from './StatsLeagueCard';
 import StatsSportCard from './StatsSportCard';
@@ -9,9 +9,9 @@ import UpcomingMatchesCard from './UpcomingMatchesCard';
 
 import {
     teams, statsLeague, statsSport, friends, upcoming
-} from '@/data/dashboardData';
+} from '../../data/dashboardData';
 
-import styles from '@/styles/Dashboard.module.css';
+import styles from '../../styles/PlayerDashboard.module.css';
 
 const Dashboard = () => (
     <div className={styles.dashboard}>

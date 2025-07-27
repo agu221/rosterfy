@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '@/styles/TeamsCard.module.css';
+import styles from '../../styles/TeamsCard.module.css';
 
 const TeamsCard = ({ teams }) => (
-    <section className={styles.card}>
+    <section className={`${styles.card} ${styles.full}`}>
         <h2>Registered Teams</h2>
         <div className={styles.list}>
             {teams.map((t) => (

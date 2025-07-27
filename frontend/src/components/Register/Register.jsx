@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../../styles/Register.module.css';
-import shared from '../../styles/_shared.module.css';
+import shared from '../../styles/_shared.css';
 import logo from '../../assets/logo.png';
 import { registerUser } from '../../api/auth';
 

@@ -1,5 +1,7 @@
+@import './_shared.css';
 .card {
-  background: white;
+  background: var(--sidebar-bg);
+  border-color: var(--border-colour);
   border-radius: 0.5rem;
   padding: 1rem;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@/styles/StatsLeagueCard.module.css';
+import styles from '../../styles/StatsLeagueCard.module.css';
 
 const StatsLeagueCard = ({ stats }) => (
     <section className={styles.card}>

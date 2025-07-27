@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from '../../styles/Login.module.css'
-import shared from '../../styles/_shared.module.css'
+import shared from '../../styles/_shared.css'
 import logo from '../../assets/logo.png'
 import { loginUser } from "../../api/auth";
 
@@ -19,7 +19,7 @@ const Login = () => {
             const data = await loginUser(emailOrUserName, password);
             localStorage.setItem('accessToken', data.accessToken);
             localStorage.setItem('refreshToken', data.refreshToken);
-            window.location.href = '/user-dashboard';
+            window.location.href = '/player_dashboard';
         } catch (error) {
             console.error('Error during login:', error.response?.data || error.message);
             setError("Invalid credentials. Please try again.");

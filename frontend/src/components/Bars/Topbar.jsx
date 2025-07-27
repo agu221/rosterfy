@@ -1,16 +1,12 @@
 // Topbar.jsx
-import React from 'react';
-import { user } from '@/data/dashboardData';
-import styles from '@/styles/Topbar.module.css';
-
+import NotificationIcon from "../Icons/NotificationIcon";
+import TopRightContainer from "../Icons/TopRightContainer";
+import UserIcon from "../Icons/UserIcon";
 const Topbar = () => (
-    <header className={styles.topbar}>
-        <div className={styles.welcome}>Welcome, {user.name}</div>
-        <div className={styles.right}>
-            <img src={user.avatar} alt="Profile" className={styles.avatar} />
-            <span className={styles.notification}>🔔</span>
-        </div>
-    </header>
+    <TopRightContainer>
+        <UserIcon />
+        <NotificationIcon />
+    </TopRightContainer>
 );
 
 export default Topbar;

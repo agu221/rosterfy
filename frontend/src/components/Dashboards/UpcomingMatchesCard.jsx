@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '@/styles/UpcomingMatchesCard.module.css';
+import styles from '../../styles/UpcomingMatchesCard.module.css';
 
 const UpcomingMatchesCard = ({ matches }) => (
-    <section className={styles.card}>
+    <section className={`${styles.card} ${styles.full}`}>
         <h2>Upcoming Matches</h2>
         <ul>
             {matches.map((m) => (

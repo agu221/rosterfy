@@ -3,6 +3,9 @@
   border-radius: 0.5rem;
   padding: 1rem;
 }
+.card.full {
+  grid-column: span 2;
+}
 
 .list {
   display: flex;
