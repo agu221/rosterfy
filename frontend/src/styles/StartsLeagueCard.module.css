@@ -1,0 +1,17 @@
+.card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+}
+
+.stat {
+  flex: 1;
+  background: #f9fafb;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}

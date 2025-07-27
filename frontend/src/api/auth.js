@@ -1,7 +1,8 @@
 // src/api/auth.js
 import axios from "axios"
+import api from "./api"
 export const loginUser = async (emailOrUsername, password) => {
-  const response = await axios.post('/users/login', {
+  const response = await api.post('/users/login', {
     emailOrUsername,
     password,
   })
@@ -9,45 +10,32 @@ export const loginUser = async (emailOrUsername, password) => {
   return response.data
 };
 
-export const registerUser = async (
-  username,
-  firstName,
-  lastName,
-  dob,
-  email,
-  phoneNumber,
-  password,
-  role,
-  gender
-) => {
-  try {
-    const response = await fetch('/users/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        Username: username,
-        FirstName: firstName,
-        LastName: lastName,
-        DOB: dob,
-        Email: email,
-        PhoneNumber: phoneNumber,
-        Password: password,
-        Role: role,
-        Gender: gender,
-      }),
-    });
+export const registerUser = async (formData) => {
+  const {
+    username,
+    firstName,
+    lastName,
+    dob,
+    email,
+    phone,
+    password,
+    role,
+    gender
+  } = formData;
+  const payload = {
+    Username: username,
+    FirstName: firstName,
+    LastName: lastName,
+    DOB: dob,
+    Email: email,
+    PhoneNumber: phone,
+    Password: password,
+    Role: role,
+    Gender: gender,
+  };
 
-    if (!response.ok) {
-      throw new Error('Registration failed');
-    }
-
-    const data = await response.json();
-    localStorage.setItem('accessToken', data.accessToken); // optional
-    window.location.href = '/user-dashboard';
-  } catch (error) {
-    console.error('Registration error:', error.message);
-    throw error;
-  }
+  const { data } = await api.post('/users/register', payload, { timeout: 5000 });
+  localStorage.setItem('accessToken', data.accessToken); // optional
+  window.location.href = '/';
+  return data;
 };

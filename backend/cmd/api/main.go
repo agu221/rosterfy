@@ -26,6 +26,6 @@ func main() {
 	if port == ""{
 		port = "8080"
 	}
-	log.Printf("Server running on http:localhost:%s", port)
+	log.Printf("Server running on http://localhost:%s", port)
 	r.Run(":" + port)
 }

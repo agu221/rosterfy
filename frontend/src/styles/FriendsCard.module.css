@@ -1,0 +1,23 @@
+.card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.friend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.friend img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
